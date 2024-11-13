@@ -9,7 +9,7 @@ using namespace nodepp;
 
 void onMain() {
 
-    rl::Init( { 300, 300 }, 60, "Multiplayer" );
+    rl::Init( 300, 300, 60, "Multiplayer" );
 
     rl::AppendScene( rl::scene::scene_0 );
 

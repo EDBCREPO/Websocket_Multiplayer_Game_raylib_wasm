@@ -17,7 +17,7 @@ void onMain(){
         if( cli.path.size() > 1 )
             dir = path::join( "www", cli.path );
 
-        console::log( cli.path, cli.get_fd() );
+      //console::log( cli.path, cli.get_fd() );
 
         if( !fs::exists_file(dir) ){
             cli.write_header( 404, header_t({ 
@@ -91,8 +91,8 @@ void onMain(){
 
     });
 
-    server.listen( "localhost", 8000, [=]( socket_t /*unused*/ ){
-        console::log("server started at https://localhost:8000");
+    server.listen( "localhost", 8000, [=]( ... ){
+        console::log("server started at http://localhost:8000");
     });
 
 }

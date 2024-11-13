@@ -1917,51 +1917,17 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  45072: function($0, $1) {let data = Date.now().toString(); stringToUTF8( data, $0, $1 ); return data.length;},  
- 45160: function($0) {let date = new Date(); if( $0 ){ return date.getUTCFullYear(); } else { return date.getFullYear(); }},  
- 45265: function($0) {let date = new Date(); if( $0 ){ return date.getUTCMonth(); } else { return date.getMonth(); }},  
- 45364: function($0) {let date = new Date(); if( $0 ){ return date.getUTCDay(); } else { return date.getDay(); }},  
- 45459: function($0) {let date = new Date(); if( $0 ){ return date.getUTCHours(); } else { return date.getHours(); }},  
- 45558: function($0) {let date = new Date(); if( $0 ){ return date.getUTCMinutes(); } else { return date.getMinutes(); }},  
- 45661: function($0) {let date = new Date(); if( $0 ){ return date.getUTCSeconds(); } else { return date.getSeconds(); }},  
- 45764: function($0, $1) {let data = Date(); stringToUTF8( data, $0, $1 ); return data.length;},  
- 45837: function($0, $1) {var value = UTF8ToString($1); var key = UTF8ToString($0); window[key] = value; return 1;},  
- 45930: function($0, $1) {stringToUTF8( window[key], $0, $1 ); return str.length;},  
- 45990: function($0) {var key = UTF8ToString($0); delete window[key]; return 1;},  
- 46052: function() {if (document.fullscreenElement) return 1;},  
- 46098: function() {return document.getElementById('canvas').width;},  
- 46150: function() {return parseInt(document.getElementById('canvas').style.width);},  
- 46218: function() {document.exitFullscreen();},  
- 46245: function() {setTimeout(function() { Module.requestFullscreen(false, false); }, 100);},  
- 46318: function() {if (document.fullscreenElement) return 1;},  
- 46364: function() {return document.getElementById('canvas').width;},  
- 46416: function() {return screen.width;},  
- 46441: function() {document.exitFullscreen();},  
- 46468: function() {setTimeout(function() { Module.requestFullscreen(false, true); setTimeout(function() { canvas.style.width="unset"; }, 100); }, 100);},  
- 46601: function() {if (document.fullscreenElement) return 1;},  
- 46647: function() {return document.getElementById('canvas').width;},  
- 46699: function() {return parseInt(document.getElementById('canvas').style.width);},  
- 46767: function() {if (document.fullscreenElement) return 1;},  
- 46813: function() {return document.getElementById('canvas').width;},  
- 46865: function() {return screen.width;},  
- 46890: function() {if (document.fullscreenElement) return 1;},  
- 46936: function() {return document.getElementById('canvas').width;},  
- 46988: function() {return screen.width;},  
- 47013: function() {document.exitFullscreen();},  
- 47040: function() {if (document.fullscreenElement) return 1;},  
- 47086: function() {return document.getElementById('canvas').width;},  
- 47138: function() {return parseInt(document.getElementById('canvas').style.width);},  
- 47206: function() {document.exitFullscreen();},  
- 47233: function() {return screen.width;},  
- 47258: function() {return screen.height;},  
- 47284: function() {return window.screenX;},  
- 47311: function() {return window.screenY;},  
- 47338: function($0) {navigator.clipboard.writeText(UTF8ToString($0));},  
- 47391: function($0) {document.getElementById("canvas").style.cursor = UTF8ToString($0);},  
- 47462: function() {document.getElementById('canvas').style.cursor = 'none';},  
- 47519: function($0) {document.getElementById('canvas').style.cursor = UTF8ToString($0);},  
- 47590: function() {if (document.fullscreenElement) return 1;},  
- 47636: function() {if (document.pointerLockElement) return 1;}
+  46288: function($0, $1) {let data = Date.now().toString(); stringToUTF8( data, $0, $1 ); return data.length;},  
+ 46376: function($0) {let date = new Date(); if( $0 ){ return date.getUTCFullYear(); } else { return date.getFullYear(); }},  
+ 46481: function($0) {let date = new Date(); if( $0 ){ return date.getUTCMonth(); } else { return date.getMonth(); }},  
+ 46580: function($0) {let date = new Date(); if( $0 ){ return date.getUTCDay(); } else { return date.getDay(); }},  
+ 46675: function($0) {let date = new Date(); if( $0 ){ return date.getUTCHours(); } else { return date.getHours(); }},  
+ 46774: function($0) {let date = new Date(); if( $0 ){ return date.getUTCMinutes(); } else { return date.getMinutes(); }},  
+ 46877: function($0) {let date = new Date(); if( $0 ){ return date.getUTCSeconds(); } else { return date.getSeconds(); }},  
+ 46980: function($0, $1) {let data = Date(); stringToUTF8( data, $0, $1 ); return data.length;},  
+ 47053: function($0, $1) {var value = UTF8ToString($1); var key = UTF8ToString($0); window[key] = value; return 1;},  
+ 47146: function($0, $1) {stringToUTF8( window[key], $0, $1 ); return str.length;},  
+ 47206: function($0) {var key = UTF8ToString($0); delete window[key]; return 1;}
 };
 function GetWindowInnerHeight(){ return window.innerHeight; }
 function GetWindowInnerWidth(){ return window.innerWidth; }
@@ -7317,74 +7283,6 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
   }
   
 
-  
-  function _emscripten_set_mousemove_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
-    if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(16, 1, target, userData, useCapture, callbackfunc, targetThread);
-    
-      registerMouseEventCallback(target, userData, useCapture, callbackfunc, 8, "mousemove", targetThread);
-      return 0;
-    
-  }
-  
-
-  function fillPointerlockChangeEventData(eventStruct) {
-      var pointerLockElement = document.pointerLockElement || document.mozPointerLockElement || document.webkitPointerLockElement || document.msPointerLockElement;
-      var isPointerlocked = !!pointerLockElement;
-      // Assigning a boolean to HEAP32 with expected type coercion.
-      /** @suppress{checkTypes} */
-      HEAP32[((eventStruct)>>2)] = isPointerlocked;
-      var nodeName = JSEvents.getNodeNameForTarget(pointerLockElement);
-      var id = (pointerLockElement && pointerLockElement.id) ? pointerLockElement.id : '';
-      stringToUTF8(nodeName, eventStruct + 4, 128);
-      stringToUTF8(id, eventStruct + 132, 128);
-    }
-  function registerPointerlockChangeEventCallback(target, userData, useCapture, callbackfunc, eventTypeId, eventTypeString, targetThread) {
-      targetThread = JSEvents.getTargetThreadForEventCallback(targetThread);
-      if (!JSEvents.pointerlockChangeEvent) JSEvents.pointerlockChangeEvent = _malloc( 260 );
-  
-      var pointerlockChangeEventHandlerFunc = function(ev) {
-        var e = ev || event;
-  
-        var pointerlockChangeEvent = targetThread ? _malloc( 260 ) : JSEvents.pointerlockChangeEvent;
-        fillPointerlockChangeEventData(pointerlockChangeEvent);
-  
-        if (targetThread) JSEvents.queueEventHandlerOnThread_iiii(targetThread, callbackfunc, eventTypeId, pointerlockChangeEvent, userData);
-        else
-        if ((function(a1, a2, a3) { return dynCall_iiii.apply(null, [callbackfunc, a1, a2, a3]); })(eventTypeId, pointerlockChangeEvent, userData)) e.preventDefault();
-      };
-  
-      var eventHandler = {
-        target: target,
-        eventTypeString: eventTypeString,
-        callbackfunc: callbackfunc,
-        handlerFunc: pointerlockChangeEventHandlerFunc,
-        useCapture: useCapture
-      };
-      JSEvents.registerOrRemoveHandler(eventHandler);
-    }
-  /** @suppress {missingProperties} */
-  
-  function _emscripten_set_pointerlockchange_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
-    if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(17, 1, target, userData, useCapture, callbackfunc, targetThread);
-    
-      // TODO: Currently not supported in pthreads or in --proxy-to-worker mode. (In pthreads mode, document object is not defined)
-      if (!document || !document.body || (!document.body.requestPointerLock && !document.body.mozRequestPointerLock && !document.body.webkitRequestPointerLock && !document.body.msRequestPointerLock)) {
-        return -1;
-      }
-  
-      target = findEventTarget(target);
-      if (!target) return -4;
-      registerPointerlockChangeEventCallback(target, userData, useCapture, callbackfunc, 20, "pointerlockchange", targetThread);
-      registerPointerlockChangeEventCallback(target, userData, useCapture, callbackfunc, 20, "mozpointerlockchange", targetThread);
-      registerPointerlockChangeEventCallback(target, userData, useCapture, callbackfunc, 20, "webkitpointerlockchange", targetThread);
-      registerPointerlockChangeEventCallback(target, userData, useCapture, callbackfunc, 20, "mspointerlockchange", targetThread);
-      return 0;
-    
-  }
-  
-
   function registerUiEventCallback(target, userData, useCapture, callbackfunc, eventTypeId, eventTypeString, targetThread) {
       targetThread = JSEvents.getTargetThreadForEventCallback(targetThread);
       if (!JSEvents.uiEvent) JSEvents.uiEvent = _malloc( 36 );
@@ -7432,7 +7330,7 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
   
   function _emscripten_set_resize_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
     if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(18, 1, target, userData, useCapture, callbackfunc, targetThread);
+      return _emscripten_proxy_to_main_thread_js(16, 1, target, userData, useCapture, callbackfunc, targetThread);
     
       registerUiEventCallback(target, userData, useCapture, callbackfunc, 10, "resize", targetThread);
       return 0;
@@ -7521,7 +7419,7 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
   
   function _emscripten_set_touchcancel_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
     if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(19, 1, target, userData, useCapture, callbackfunc, targetThread);
+      return _emscripten_proxy_to_main_thread_js(17, 1, target, userData, useCapture, callbackfunc, targetThread);
     
       registerTouchEventCallback(target, userData, useCapture, callbackfunc, 25, "touchcancel", targetThread);
       return 0;
@@ -7532,7 +7430,7 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
   
   function _emscripten_set_touchend_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
     if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(20, 1, target, userData, useCapture, callbackfunc, targetThread);
+      return _emscripten_proxy_to_main_thread_js(18, 1, target, userData, useCapture, callbackfunc, targetThread);
     
       registerTouchEventCallback(target, userData, useCapture, callbackfunc, 23, "touchend", targetThread);
       return 0;
@@ -7543,7 +7441,7 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
   
   function _emscripten_set_touchmove_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
     if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(21, 1, target, userData, useCapture, callbackfunc, targetThread);
+      return _emscripten_proxy_to_main_thread_js(19, 1, target, userData, useCapture, callbackfunc, targetThread);
     
       registerTouchEventCallback(target, userData, useCapture, callbackfunc, 24, "touchmove", targetThread);
       return 0;
@@ -7554,7 +7452,7 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
   
   function _emscripten_set_touchstart_callback_on_thread(target, userData, useCapture, callbackfunc, targetThread) {
     if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(22, 1, target, userData, useCapture, callbackfunc, targetThread);
+      return _emscripten_proxy_to_main_thread_js(20, 1, target, userData, useCapture, callbackfunc, targetThread);
     
       registerTouchEventCallback(target, userData, useCapture, callbackfunc, 22, "touchstart", targetThread);
       return 0;
@@ -8361,7 +8259,7 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
   
   function _emscripten_set_window_title(title) {
     if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(23, 1, title);
+      return _emscripten_proxy_to_main_thread_js(21, 1, title);
     
       setWindowTitle(UTF8ToString(title));
     
@@ -8419,33 +8317,9 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
 
   var WS = {sockets:[null],socketEvent:null};
   
-  function _emscripten_websocket_close(socketId, code, reason) {
-    if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(24, 1, socketId, code, reason);
-    
-      var socket = WS.sockets[socketId];
-      if (!socket) {
-        return -3;
-      }
-  
-      var reasonStr = reason ? UTF8ToString(reason) : undefined;
-      // According to WebSocket specification, only close codes that are recognized have integer values
-      // 1000-4999, with 3000-3999 and 4000-4999 denoting user-specified close codes:
-      // https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent#Status_codes
-      // Therefore be careful to call the .close() function with exact number and types of parameters.
-      // Coerce code==0 to undefined, since Wasm->JS call can only marshal integers, and 0 is not allowed.
-      if (reason) socket.close(code || undefined, UTF8ToString(reason));
-      else if (code) socket.close(code);
-      else socket.close();
-      return 0;
-    
-  }
-  
-
-  
   function _emscripten_websocket_delete(socketId) {
     if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(25, 1, socketId);
+      return _emscripten_proxy_to_main_thread_js(22, 1, socketId);
     
       var socket = WS.sockets[socketId];
       if (!socket) {
@@ -8460,9 +8334,25 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
   
 
   
+  function _emscripten_websocket_get_ready_state(socketId, readyState) {
+    if (ENVIRONMENT_IS_PTHREAD)
+      return _emscripten_proxy_to_main_thread_js(23, 1, socketId, readyState);
+    
+      var socket = WS.sockets[socketId];
+      if (!socket) {
+        return -3;
+      }
+  
+      HEAP16[((readyState)>>1)] = socket.readyState;
+      return 0;
+    
+  }
+  
+
+  
   function _emscripten_websocket_is_supported() {
     if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(26, 1);
+      return _emscripten_proxy_to_main_thread_js(24, 1);
     
       return typeof WebSocket != 'undefined';
     
@@ -8472,7 +8362,7 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
   
   function _emscripten_websocket_new(createAttributes) {
     if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(27, 1, createAttributes);
+      return _emscripten_proxy_to_main_thread_js(25, 1, createAttributes);
     
       if (typeof WebSocket == 'undefined') {
         return -1;
@@ -8502,7 +8392,7 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
   
   function _emscripten_websocket_send_binary(socketId, binaryData, dataLength) {
     if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(28, 1, socketId, binaryData, dataLength);
+      return _emscripten_proxy_to_main_thread_js(26, 1, socketId, binaryData, dataLength);
     
       var socket = WS.sockets[socketId];
       if (!socket) {
@@ -8520,7 +8410,7 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
   
   function _emscripten_websocket_set_onclose_callback_on_thread(socketId, userData, callbackFunc, thread) {
     if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(29, 1, socketId, userData, callbackFunc, thread);
+      return _emscripten_proxy_to_main_thread_js(27, 1, socketId, userData, callbackFunc, thread);
     
       if (!WS.socketEvent) WS.socketEvent = _malloc(1024); // TODO: sizeof(EmscriptenWebSocketCloseEvent), which is the largest event struct
   
@@ -8542,30 +8432,9 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
   
 
   
-  function _emscripten_websocket_set_onerror_callback_on_thread(socketId, userData, callbackFunc, thread) {
-    if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(30, 1, socketId, userData, callbackFunc, thread);
-    
-      if (!WS.socketEvent) WS.socketEvent = _malloc(1024); // TODO: sizeof(EmscriptenWebSocketCloseEvent), which is the largest event struct
-  
-      var socket = WS.sockets[socketId];
-      if (!socket) {
-        return -3;
-      }
-  
-      socket.onerror = function(e) {
-        HEAPU32[WS.socketEvent>>2] = socketId;
-        (function(a1, a2, a3) { return dynCall_iiii.apply(null, [callbackFunc, a1, a2, a3]); })(0/*TODO*/, WS.socketEvent, userData);
-      }
-      return 0;
-    
-  }
-  
-
-  
   function _emscripten_websocket_set_onmessage_callback_on_thread(socketId, userData, callbackFunc, thread) {
     if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(31, 1, socketId, userData, callbackFunc, thread);
+      return _emscripten_proxy_to_main_thread_js(28, 1, socketId, userData, callbackFunc, thread);
     
       if (!WS.socketEvent) WS.socketEvent = _malloc(1024); // TODO: sizeof(EmscriptenWebSocketCloseEvent), which is the largest event struct
   
@@ -8600,7 +8469,7 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
   
   function _emscripten_websocket_set_onopen_callback_on_thread(socketId, userData, callbackFunc, thread) {
     if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(32, 1, socketId, userData, callbackFunc, thread);
+      return _emscripten_proxy_to_main_thread_js(29, 1, socketId, userData, callbackFunc, thread);
     
   // TODO:
   //    if (thread == 2 ||
@@ -8626,7 +8495,7 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
   
   function _fd_close(fd) {
     if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(33, 1, fd);
+      return _emscripten_proxy_to_main_thread_js(30, 1, fd);
     
   try {
   
@@ -8644,7 +8513,7 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
   
   function _fd_read(fd, iov, iovcnt, pnum) {
     if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(34, 1, fd, iov, iovcnt, pnum);
+      return _emscripten_proxy_to_main_thread_js(31, 1, fd, iov, iovcnt, pnum);
     
   try {
   
@@ -8663,7 +8532,7 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
   
   function _fd_seek(fd, offset_low, offset_high, whence, newOffset) {
     if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(35, 1, fd, offset_low, offset_high, whence, newOffset);
+      return _emscripten_proxy_to_main_thread_js(32, 1, fd, offset_low, offset_high, whence, newOffset);
     
   try {
   
@@ -8694,7 +8563,7 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
   
   function _fd_write(fd, iov, iovcnt, pnum) {
     if (ENVIRONMENT_IS_PTHREAD)
-      return _emscripten_proxy_to_main_thread_js(36, 1, fd, iov, iovcnt, pnum);
+      return _emscripten_proxy_to_main_thread_js(33, 1, fd, iov, iovcnt, pnum);
     
   try {
   
@@ -9093,6 +8962,8 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
   function _glTexImage2D(target, level, internalFormat, width, height, border, format, type, pixels) {
       GLctx.texImage2D(target, level, internalFormat, width, height, border, format, type, pixels ? emscriptenWebGLGetTexPixelData(type, format, width, height, pixels, internalFormat) : null);
     }
+
+  function _glTexParameterf(x0, x1, x2) { GLctx['texParameterf'](x0, x1, x2) }
 
   function _glTexParameteri(x0, x1, x2) { GLctx['texParameteri'](x0, x1, x2) }
 
@@ -10010,12 +9881,6 @@ function GetWindowInnerWidth(){ return window.innerWidth; }
       return GLFW.setScrollCallback(winid, cbfun);
     }
 
-  /** @type {function(...*):?} */
-  function _glfwSetWindowContentScaleCallback(
-  ) {
-  err('missing function: glfwSetWindowContentScaleCallback'); abort(-1);
-  }
-
   function _glfwSetWindowFocusCallback(winid, cbfun) {
       var win = GLFW.WindowFromId(winid);
       if (!win) return null;
@@ -10507,7 +10372,7 @@ Module["requestFullscreen"] = function Module_requestFullscreen(lockPointer, res
 
  // proxiedFunctionTable specifies the list of functions that can be called either synchronously or asynchronously from other threads in postMessage()d or internally queued events. This way a pthread in a Worker can synchronously access e.g. the DOM on the main thread.
 
-var proxiedFunctionTable = [null,exitOnMainThread,___syscall_faccessat,___syscall_fcntl64,___syscall_getcwd,___syscall_ioctl,___syscall_open,_emscripten_get_element_css_size,_emscripten_get_gamepad_status,_emscripten_get_num_gamepads,_emscripten_sample_gamepad_data,_emscripten_set_canvas_element_size_main_thread,_emscripten_set_click_callback_on_thread,_emscripten_set_fullscreenchange_callback_on_thread,_emscripten_set_gamepadconnected_callback_on_thread,_emscripten_set_gamepaddisconnected_callback_on_thread,_emscripten_set_mousemove_callback_on_thread,_emscripten_set_pointerlockchange_callback_on_thread,_emscripten_set_resize_callback_on_thread,_emscripten_set_touchcancel_callback_on_thread,_emscripten_set_touchend_callback_on_thread,_emscripten_set_touchmove_callback_on_thread,_emscripten_set_touchstart_callback_on_thread,_emscripten_set_window_title,_emscripten_websocket_close,_emscripten_websocket_delete,_emscripten_websocket_is_supported,_emscripten_websocket_new,_emscripten_websocket_send_binary,_emscripten_websocket_set_onclose_callback_on_thread,_emscripten_websocket_set_onerror_callback_on_thread,_emscripten_websocket_set_onmessage_callback_on_thread,_emscripten_websocket_set_onopen_callback_on_thread,_fd_close,_fd_read,_fd_seek,_fd_write];
+var proxiedFunctionTable = [null,exitOnMainThread,___syscall_faccessat,___syscall_fcntl64,___syscall_getcwd,___syscall_ioctl,___syscall_open,_emscripten_get_element_css_size,_emscripten_get_gamepad_status,_emscripten_get_num_gamepads,_emscripten_sample_gamepad_data,_emscripten_set_canvas_element_size_main_thread,_emscripten_set_click_callback_on_thread,_emscripten_set_fullscreenchange_callback_on_thread,_emscripten_set_gamepadconnected_callback_on_thread,_emscripten_set_gamepaddisconnected_callback_on_thread,_emscripten_set_resize_callback_on_thread,_emscripten_set_touchcancel_callback_on_thread,_emscripten_set_touchend_callback_on_thread,_emscripten_set_touchmove_callback_on_thread,_emscripten_set_touchstart_callback_on_thread,_emscripten_set_window_title,_emscripten_websocket_delete,_emscripten_websocket_get_ready_state,_emscripten_websocket_is_supported,_emscripten_websocket_new,_emscripten_websocket_send_binary,_emscripten_websocket_set_onclose_callback_on_thread,_emscripten_websocket_set_onmessage_callback_on_thread,_emscripten_websocket_set_onopen_callback_on_thread,_fd_close,_fd_read,_fd_seek,_fd_write];
 
 var ASSERTIONS = true;
 
@@ -10807,8 +10672,6 @@ var asmLibraryArg = {
   "emscripten_set_fullscreenchange_callback_on_thread": _emscripten_set_fullscreenchange_callback_on_thread,
   "emscripten_set_gamepadconnected_callback_on_thread": _emscripten_set_gamepadconnected_callback_on_thread,
   "emscripten_set_gamepaddisconnected_callback_on_thread": _emscripten_set_gamepaddisconnected_callback_on_thread,
-  "emscripten_set_mousemove_callback_on_thread": _emscripten_set_mousemove_callback_on_thread,
-  "emscripten_set_pointerlockchange_callback_on_thread": _emscripten_set_pointerlockchange_callback_on_thread,
   "emscripten_set_resize_callback_on_thread": _emscripten_set_resize_callback_on_thread,
   "emscripten_set_touchcancel_callback_on_thread": _emscripten_set_touchcancel_callback_on_thread,
   "emscripten_set_touchend_callback_on_thread": _emscripten_set_touchend_callback_on_thread,
@@ -10818,13 +10681,12 @@ var asmLibraryArg = {
   "emscripten_sleep": _emscripten_sleep,
   "emscripten_unwind_to_js_event_loop": _emscripten_unwind_to_js_event_loop,
   "emscripten_webgl_create_context": _emscripten_webgl_create_context,
-  "emscripten_websocket_close": _emscripten_websocket_close,
   "emscripten_websocket_delete": _emscripten_websocket_delete,
+  "emscripten_websocket_get_ready_state": _emscripten_websocket_get_ready_state,
   "emscripten_websocket_is_supported": _emscripten_websocket_is_supported,
   "emscripten_websocket_new": _emscripten_websocket_new,
   "emscripten_websocket_send_binary": _emscripten_websocket_send_binary,
   "emscripten_websocket_set_onclose_callback_on_thread": _emscripten_websocket_set_onclose_callback_on_thread,
-  "emscripten_websocket_set_onerror_callback_on_thread": _emscripten_websocket_set_onerror_callback_on_thread,
   "emscripten_websocket_set_onmessage_callback_on_thread": _emscripten_websocket_set_onmessage_callback_on_thread,
   "emscripten_websocket_set_onopen_callback_on_thread": _emscripten_websocket_set_onopen_callback_on_thread,
   "exit": _exit,
@@ -10877,6 +10739,7 @@ var asmLibraryArg = {
   "glReadPixels": _glReadPixels,
   "glShaderSource": _glShaderSource,
   "glTexImage2D": _glTexImage2D,
+  "glTexParameterf": _glTexParameterf,
   "glTexParameteri": _glTexParameteri,
   "glUniform1i": _glUniform1i,
   "glUniform4f": _glUniform4f,
@@ -10900,7 +10763,6 @@ var asmLibraryArg = {
   "glfwSetKeyCallback": _glfwSetKeyCallback,
   "glfwSetMouseButtonCallback": _glfwSetMouseButtonCallback,
   "glfwSetScrollCallback": _glfwSetScrollCallback,
-  "glfwSetWindowContentScaleCallback": _glfwSetWindowContentScaleCallback,
   "glfwSetWindowFocusCallback": _glfwSetWindowFocusCallback,
   "glfwSetWindowIconifyCallback": _glfwSetWindowIconifyCallback,
   "glfwSetWindowShouldClose": _glfwSetWindowShouldClose,
@@ -10916,9 +10778,6 @@ Asyncify.instrumentWasmImports(asmLibraryArg);
 var asm = createWasm();
 /** @type {function(...*):?} */
 var ___wasm_call_ctors = Module["___wasm_call_ctors"] = createExportWrapper("__wasm_call_ctors");
-
-/** @type {function(...*):?} */
-var _pthread_self = Module["_pthread_self"] = createExportWrapper("pthread_self");
 
 /** @type {function(...*):?} */
 var _main = Module["_main"] = createExportWrapper("main");
@@ -10952,6 +10811,9 @@ var _emscripten_main_thread_process_queued_calls = Module["_emscripten_main_thre
 
 /** @type {function(...*):?} */
 var __emscripten_thread_init = Module["__emscripten_thread_init"] = createExportWrapper("_emscripten_thread_init");
+
+/** @type {function(...*):?} */
+var _pthread_self = Module["_pthread_self"] = createExportWrapper("pthread_self");
 
 /** @type {function(...*):?} */
 var _emscripten_current_thread_process_queued_calls = Module["_emscripten_current_thread_process_queued_calls"] = createExportWrapper("emscripten_current_thread_process_queued_calls");
@@ -11018,10 +10880,10 @@ var dynCall_vi = Module["dynCall_vi"] = createExportWrapper("dynCall_vi");
 var dynCall_v = Module["dynCall_v"] = createExportWrapper("dynCall_v");
 
 /** @type {function(...*):?} */
-var dynCall_ii = Module["dynCall_ii"] = createExportWrapper("dynCall_ii");
+var dynCall_iiii = Module["dynCall_iiii"] = createExportWrapper("dynCall_iiii");
 
 /** @type {function(...*):?} */
-var dynCall_iiii = Module["dynCall_iiii"] = createExportWrapper("dynCall_iiii");
+var dynCall_ii = Module["dynCall_ii"] = createExportWrapper("dynCall_ii");
 
 /** @type {function(...*):?} */
 var dynCall_vii = Module["dynCall_vii"] = createExportWrapper("dynCall_vii");
@@ -11031,9 +10893,6 @@ var dynCall_iii = Module["dynCall_iii"] = createExportWrapper("dynCall_iii");
 
 /** @type {function(...*):?} */
 var dynCall_viii = Module["dynCall_viii"] = createExportWrapper("dynCall_viii");
-
-/** @type {function(...*):?} */
-var dynCall_viff = Module["dynCall_viff"] = createExportWrapper("dynCall_viff");
 
 /** @type {function(...*):?} */
 var dynCall_viiiii = Module["dynCall_viiiii"] = createExportWrapper("dynCall_viiiii");
@@ -11075,6 +10934,9 @@ var dynCall_viif = Module["dynCall_viif"] = createExportWrapper("dynCall_viif");
 var dynCall_vif = Module["dynCall_vif"] = createExportWrapper("dynCall_vif");
 
 /** @type {function(...*):?} */
+var dynCall_viff = Module["dynCall_viff"] = createExportWrapper("dynCall_viff");
+
+/** @type {function(...*):?} */
 var dynCall_vifff = Module["dynCall_vifff"] = createExportWrapper("dynCall_vifff");
 
 /** @type {function(...*):?} */
@@ -11101,8 +10963,8 @@ var _asyncify_start_rewind = Module["_asyncify_start_rewind"] = createExportWrap
 /** @type {function(...*):?} */
 var _asyncify_stop_rewind = Module["_asyncify_stop_rewind"] = createExportWrapper("asyncify_stop_rewind");
 
-var ___emscripten_embedded_file_data = Module['___emscripten_embedded_file_data'] = 40076;
-var __emscripten_allow_main_runtime_queued_calls = Module['__emscripten_allow_main_runtime_queued_calls'] = 44608;
+var ___emscripten_embedded_file_data = Module['___emscripten_embedded_file_data'] = 41340;
+var __emscripten_allow_main_runtime_queued_calls = Module['__emscripten_allow_main_runtime_queued_calls'] = 45828;
 
 
 
