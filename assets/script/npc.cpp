@@ -38,8 +38,7 @@ namespace rl { namespace game {
             auto ids = GetScene().GetAttr("onSend")
             .as<event_t<player_t>>().on([=]( player_t data ){
                 cli.write( string_t( 
-                    type::cast<char>(&data), 
-                    sizeof(player_t) 
+                    (char*) &data, sizeof(player_t) 
                 )); 
             });
 
@@ -79,7 +78,7 @@ namespace rl { namespace game {
     /*─······································································─*/
 
         self->onRemove([=](){
-            if( IsTextureReady(obj->img) ){ UnloadTexture( obj->img ); }
+            if( IsTextureValid(obj->img) ){ UnloadTexture( obj->img ); }
         });
 
     }

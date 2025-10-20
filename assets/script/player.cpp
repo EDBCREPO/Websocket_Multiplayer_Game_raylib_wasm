@@ -33,7 +33,7 @@ namespace rl { namespace game {
 
         self->onLoop([=]( float delta ){ [=](){
             static uchar x = 0; static player_t prev;
-        coStart; coDelay(100);
+        coStart; coDelay(80);
 
             if( obj->dt.state == 1 ){ obj->dt.frm.x = 1+x; x++; x %= 4; }
           elif( obj->dt.state == 0 ){ obj->dt.frm.x = 0; }
@@ -81,7 +81,7 @@ namespace rl { namespace game {
     /*─······································································─*/
 
         self->onRemove([=](){
-            if( IsTextureReady(obj->img) ){ UnloadTexture( obj->img ); }
+            if( IsTextureValid(obj->img) ){ UnloadTexture( obj->img ); }
         });
 
     }

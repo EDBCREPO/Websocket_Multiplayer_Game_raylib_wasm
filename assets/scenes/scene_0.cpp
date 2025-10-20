@@ -17,7 +17,9 @@ namespace rl { namespace scene {
         self->AppendItem( "npc", rl::game::npc );
         self->AppendItem( "player", rl::game::player );
 
-      //self->onDraw([](){ ClearBackground( BLACK ); });
+        self->onDraw([](){ 
+            ClearBackground( Color({ 22, 22, 22, 0 }) ); 
+        });
 
     }
 
